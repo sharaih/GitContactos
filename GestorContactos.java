@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class GestorContactos {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
 
@@ -23,16 +23,16 @@ public class GestorContactos {
 			opcion = scan.nextInt();
 			switch (opcion) {
 				case 1:
-					//crearContacto();
+					crearContacto();
 					break;
 				case 2:
 					//eliminarContacto();
 					break;
 				case 3:
-					//mostrarTodos();
+					mostrarTodos();
 					break;
 				case 4:
-					//mostrarFiltrados();
+					mostrarFiltrados();
 					break;
 				case 0:
 					System.out.println("\n\nBye ;)");
@@ -49,6 +49,12 @@ public class GestorContactos {
 
 	private static void mostrarTodos() {}
 
-	private static void mostrarFiltrados() {}
+		private static void mostrarFiltrados() {
+				 System.out.println("Ingrese nombre contacto: ");
+				 String criterio =scan.next().trim().toLowerCase();
+		                 contactos.stream().filter(c->c.getNombre().equals(criterio)).map(c -> c.toString())
+		                 .forEach(System.out::println);
+		                 System.out.println("Su filtracion ha sido exitosa");
 
+			}
 }

@@ -37,4 +37,9 @@ public class Contacto {
 		this.telefono = telefono;
 	}
 
+	@Override
+	public String toString() {
+		return (nombre + " " + apellido + " " + fechaNacimiento + " " + telefono);
+	}
+	
 }
