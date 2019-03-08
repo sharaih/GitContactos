@@ -1,15 +1,16 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GestorContactos {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
 
 	public static void main(String[] args) {
 		int opcion;
 		do {
-			System.out.print("\033[H\033[2J");
-			System.out.flush();
+		  System.out.print("\033[H\033[2J");
+		  System.out.flush();
 			System.out.println("+-------- Gestor de contactos --------+");
 			System.out.println("|                                     |");
 			System.out.println("| Seleccione una opción:              |");
@@ -23,16 +24,16 @@ public class GestorContactos {
 			opcion = scan.nextInt();
 			switch (opcion) {
 				case 1:
-					//crearContacto();
+					crearContacto();
 					break;
 				case 2:
-					//eliminarContacto();
+					eliminarContacto();
 					break;
 				case 3:
-					//mostrarTodos();
+					mostrarTodos();
 					break;
 				case 4:
-					//mostrarFiltrados();
+					mostrarFiltrados();
 					break;
 				case 0:
 					System.out.println("\n\nBye ;)");
@@ -43,12 +44,41 @@ public class GestorContactos {
 		} while(opcion != 0);
 	}
 
-	private static void crearContacto() {}
+	private static void crearContacto() {
 
-	private static void eliminarContacto() {}
+		Contacto newContact = new Contacto();
 
-	private static void mostrarTodos() {}
+		System.out.print("Ingrese Nombre:");
+		newContact.setNombre(scan.next());
+		System.out.print("\nIngrese Apellido:");
+		newContact.setApellido(scan.next());
+		System.out.print("\nIngrese Fecha de Nacimiento:");
+		newContact.setFechaNacimiento(scan.next());
+		System.out.print("\nIngrese Numero de Telefono:");
+		newContact.setTelefono(scan.next());
+		contactos.add(newContact);
+		System.out.print("\n\n");
+	}
 
-	private static void mostrarFiltrados() {}
+	private static void eliminarContacto() {
+	System.out.println("Ingrese el número que desea eliminar de sus contactos: ");
+  String telefono = scan.next();
+  contactos = contactos.stream()
+  .filter(c -> ! c.getTelefono().equals(telefono))
+  .collect(Collectors.toList());
+	System.out.println("***Contacto borrado exitosamente***");
+	}
 
+	private static void mostrarTodos() {
+		contactos.forEach(System.out::println);
+		}
+
+		private static void mostrarFiltrados() {
+				 System.out.println("Ingrese nombre contacto: ");
+				 String criterio =scan.next().trim().toLowerCase();
+		                 contactos.stream().filter(c->c.getNombre().equals(criterio)).map(c -> c.toString())
+		                 .forEach(System.out::println);
+		                 System.out.println("*** filtracion ha sido exitosa  ***");
+
+}
 }
