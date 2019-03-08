@@ -48,12 +48,7 @@ public class GestorContactos {
 	private static void eliminarContacto() {}
 
 	private static void mostrarTodos() {
-
-			for(int i=0; i<=contactos.size(); i++) {
-
-            System.out.println("Los contactos son: " +(i));
-
-       }
+		contactos.forEach(System.out::println);
 		}
 
 	private static void mostrarFiltrados() {}
