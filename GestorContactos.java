@@ -43,11 +43,27 @@ public class GestorContactos {
 		} while(opcion != 0);
 	}
 
-	private static void crearContacto() {}
+	private static void crearContacto() {
+
+		Contacto newContact = new Contacto();
+
+		System.out.print("Ingrese Nombre:");
+		newContact.setNombre(scan.next());
+		System.out.print("\nIngrese Apellido:");
+		newContact.setApellido(scan.next());
+		System.out.print("\nIngrese Fecha de Nacimiento:");
+		newContact.setFechaNacimiento(scan.next());
+		System.out.print("\nIngrese Numero de Telefono:");
+		newContact.setTelefono(scan.next());
+		contactos.add(newContact);
+		System.out.print("\n\n");
+	}
 
 	private static void eliminarContacto() {}
 
-	private static void mostrarTodos() {}
+	private static void mostrarTodos() {
+		contactos.forEach(System.out::println);
+		}
 
 		private static void mostrarFiltrados() {
 				 System.out.println("Ingrese nombre contacto: ");
@@ -56,5 +72,5 @@ public class GestorContactos {
 		                 .forEach(System.out::println);
 		                 System.out.println("Su filtracion ha sido exitosa");
 
-			}
+}
 }

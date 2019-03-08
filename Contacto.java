@@ -38,8 +38,8 @@ public class Contacto {
 	}
 
 	@Override
-	public String toString() {
-		return (nombre + " " + apellido + " " + fechaNacimiento + " " + telefono);
+	public String toString(){
+	return (" "+nombre+" "+apellido+" " +fechaNacimiento+" "+telefono);
 	}
-	
+
 }
