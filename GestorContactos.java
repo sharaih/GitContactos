@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class GestorContactos {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public class GestorContactos {
 					//eliminarContacto();
 					break;
 				case 3:
-					//mostrarTodos();
+					mostrarTodos();
 					break;
 				case 4:
 					//mostrarFiltrados();
@@ -47,7 +47,14 @@ public class GestorContactos {
 
 	private static void eliminarContacto() {}
 
-	private static void mostrarTodos() {}
+	private static void mostrarTodos() {
+
+			for(int i=0; i<=contactos.size(); i++) {
+
+            System.out.println("Los contactos son: " +(i));
+
+       }
+		}
 
 	private static void mostrarFiltrados() {}
 
