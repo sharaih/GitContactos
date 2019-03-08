@@ -29,7 +29,7 @@ public class GestorContactos {
 					//eliminarContacto();
 					break;
 				case 3:
-					//mostrarTodos();
+					mostrarTodos();
 					break;
 				case 4:
 					//mostrarFiltrados();
@@ -61,7 +61,9 @@ public class GestorContactos {
 
 	private static void eliminarContacto() {}
 
-	private static void mostrarTodos() {}
+	private static void mostrarTodos() {
+		contactos.forEach(System.out::println);
+		}
 
 	private static void mostrarFiltrados() {}
 
