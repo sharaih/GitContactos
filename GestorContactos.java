@@ -9,8 +9,8 @@ public class GestorContactos {
 	public static void main(String[] args) {
 		int opcion;
 		do {
-			System.out.print("\033[H\033[2J");
-			System.out.flush();
+		  System.out.print("\033[H\033[2J");
+		  System.out.flush();
 			System.out.println("+-------- Gestor de contactos --------+");
 			System.out.println("|                                     |");
 			System.out.println("| Seleccione una opción:              |");
@@ -61,11 +61,12 @@ public class GestorContactos {
 	}
 
 	private static void eliminarContacto() {
-	System.out.println("Ingrese el número que desea eliminar de sus contactos");
-  String telefono = scan.nextLine();
+	System.out.println("Ingrese el número que desea eliminar de sus contactos: ");
+  String telefono = scan.next();
   contactos = contactos.stream()
   .filter(c -> ! c.getTelefono().equals(telefono))
   .collect(Collectors.toList());
+	System.out.println("***Contacto borrado exitosamente***");
 	}
 
 	private static void mostrarTodos() {
@@ -77,7 +78,7 @@ public class GestorContactos {
 				 String criterio =scan.next().trim().toLowerCase();
 		                 contactos.stream().filter(c->c.getNombre().equals(criterio)).map(c -> c.toString())
 		                 .forEach(System.out::println);
-		                 System.out.println("Su filtracion ha sido exitosa");
+		                 System.out.println("*** filtracion ha sido exitosa  ***");
 
 }
 }
